@@ -4,7 +4,14 @@ public class coding_72 {
     public static void main(String[] args) {
 
     }
-
+    /**
+     * 动态规划: 编辑距离
+     * 状态转移公式:
+     *  dp[i][j] = 1 + Math.min(Math.min(dp[i - 1][j], dp[i][j - 1]), dp[i - 1][j - 1]);
+     *  dp[i][j] = dp[i - 1][j - 1];
+     * https://leetcode-cn.com/problems/edit-distance/solution/bian-ji-ju-chi-by-leetcode-solution/
+     * Lucien的回答很不错
+     */
     public int minDistance(String word1, String word2) {
         int len1 = word1.length(), len2 = word2.length();
         int[][] dp = new int[len1 + 1][len2 + 1];
