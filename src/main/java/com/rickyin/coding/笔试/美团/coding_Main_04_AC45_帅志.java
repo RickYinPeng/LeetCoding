@@ -2,7 +2,7 @@ package com.rickyin.coding.笔试.美团;
 
 import java.util.Scanner;
 
-public class coding_Main_04_帅志 {
+public class coding_Main_04_AC45_帅志 {
     static int res = 0;
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
