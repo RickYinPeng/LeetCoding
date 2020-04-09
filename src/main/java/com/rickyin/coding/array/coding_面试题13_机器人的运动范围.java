@@ -43,9 +43,6 @@ public class coding_面试题13_机器人的运动范围 {
                 if ((gi + si + bi + gj + sj + bj) <= k) {
                     Node node = new Node(nextX, nextY);
                     if (!visted.contains(node)) {
-                        System.out.println("x:"+nextX);
-                        System.out.println("y:"+nextY);
-                        System.out.println("------------------");
                         queue.add(node);
                         visted.add(node);
                         count++;
