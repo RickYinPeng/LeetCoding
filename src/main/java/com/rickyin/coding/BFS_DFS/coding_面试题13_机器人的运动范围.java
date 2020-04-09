@@ -1,9 +1,12 @@
-package com.rickyin.coding.array;
+package com.rickyin.coding.BFS_DFS;
 
 import java.util.*;
 
 /**
  * 剑指offer13题，BFS
+ * 做过几个使用BFS算法的题目了，当BFS算法中牵扯状态重复的问题，那么就需要辅助数组去判断当前节点是否访问过
+ * 就比如当前这道题，因为有四个方向，它有可能走到上一步的格子里去，那么就会重复，
+ * 但如果是一个树装结构，采用BFS的话，就不存在状态重复的问题
  */
 public class coding_面试题13_机器人的运动范围 {
     public static void main(String[] args) {

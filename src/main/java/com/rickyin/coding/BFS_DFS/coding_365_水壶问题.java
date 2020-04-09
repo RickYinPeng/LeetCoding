@@ -1,4 +1,4 @@
-package com.rickyin.coding.数学问题;
+package com.rickyin.coding.BFS_DFS;
 
 import java.util.*;
 
