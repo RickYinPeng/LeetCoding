@@ -4,7 +4,7 @@ import javax.xml.stream.FactoryConfigurationError;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class coding_542_01矩阵 {
+public class coding_542_01矩阵_未完成 {
     public static void main(String[] args) {
         int[][] m = {
                 {0, 1, 0, 1, 1},
