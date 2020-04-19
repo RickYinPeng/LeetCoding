@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
-public class coding_56_合并区间 {
+public class coding_56_合并区间_做的不好 {
     public static void main(String[] args) {
         int[][] a = {
                 {1, 4},
