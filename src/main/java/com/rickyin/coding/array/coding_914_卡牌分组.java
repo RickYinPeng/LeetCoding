@@ -35,8 +35,8 @@ public class coding_914_卡牌分组 {
                         count++;
                     } else {
                         if (res % cur == 0) {
-                              continue;
-                        }else {
+                            continue;
+                        } else {
                             return false;
                         }
                     }

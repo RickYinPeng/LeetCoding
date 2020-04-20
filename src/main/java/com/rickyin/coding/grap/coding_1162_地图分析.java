@@ -8,13 +8,14 @@ import java.util.*;
  */
 public class coding_1162_地图分析 {
     public static void main(String[] args) {
-        int[][] r = {{1,0,0},{0,0,0},{0,0,0}};
+        int[][] r = {{1, 0, 0}, {0, 0, 0}, {0, 0, 0}};
         int i = maxDistance(r);
         System.out.println(i);
     }
 
     /**
      * 暴力解法 --- 官方的解法是BFS
+     *
      * @param grid
      * @return
      */
@@ -35,7 +36,7 @@ public class coding_1162_地图分析 {
                 }
             }
         }
-        if(landflag == false){
+        if (landflag == false) {
             return -1;
         }
         boolean waterflag = false;
@@ -62,10 +63,56 @@ public class coding_1162_地图分析 {
                 }
             }
         }
-        if(waterflag == false){
+        if (waterflag == false) {
             return -1;
         }
         Collections.sort(minList);
-        return minList.get(minList.size()-1);
+        return minList.get(minList.size() - 1);
+    }
+
+    /**
+     * 多源广度优先搜索(多源BFS):添加超级源点可以使多源BFS退化成单源BFS。
+     */
+    public static int maxDistance_2(int[][] grid) {
+        int[] dx = {-1, 1, 0, 0};
+        int[] dy = {0, 0, -1, 1};
+
+        Queue<int[]> queue = new ArrayDeque<>();
+        int m = grid.length;
+        int n = grid[0].length;
+        // 先把所有的陆地下标都入队。
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (grid[i][j] == 1) {
+                    queue.add(new int[]{i, j});
+                }
+            }
+        }
+
+        // 从各个陆地开始，一圈一圈的遍历海洋，最后遍历到的海洋就是离陆地最远的海洋。
+        boolean hasOcean = false;
+        int[] point = null;
+        while (!queue.isEmpty()) {
+            point = queue.poll();
+            int x = point[0];
+            int y = point[1];
+            // 取出队列的元素，将其四周的海洋入队。
+            for (int i = 0; i < 4; i++) {
+                int newX = x + dx[i];
+                int newY = y + dy[i];
+                if (newX < 0 || newX >= m || newY < 0 || newY >= n || grid[newX][newY] != 0) {
+                    continue;
+                }
+                grid[newX][newY] = grid[x][y] + 1;
+                hasOcean = true;
+                queue.add(new int[]{newX, newY});
+            }
+        }
+        //如果没有陆地或者没有海洋，返回-1
+        if (point == null || !hasOcean) {
+            return -1;
+        }
+        //返回最后一次遍历到的海洋的距离
+        return grid[point[0]][point[1]] - 1;
     }
 }
