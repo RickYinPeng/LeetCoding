@@ -58,7 +58,7 @@ public class coding_1248_统计优美子数组 {
         while (right < nums.length) {
             // 右指针先走，每遇到一个奇数则 oddCnt++。
             if ((nums[right++] & 1) == 1) {
-                oddCnt++;   
+                oddCnt++;
             }
             //  若当前滑动窗口 [left, right) 中有 k 个奇数了，进入此分支统计当前滑动窗口中的优美子数组个数。
             if (oddCnt == k) {
