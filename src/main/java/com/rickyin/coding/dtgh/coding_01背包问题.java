@@ -15,7 +15,7 @@ import java.util.Scanner;
  *  输出一个整数，表示最大价值。
  *
  * 思路: (背包问题是动态规划的经典问题)
- *  f[i][j] 表示只看前 i 个物品,这前i个物品的总体积是 j 的情况下,总价值最大是多少(例:前10个物品,这前10个物品中有的被装了进来,有的没有被装进来)
+ *  f[i][j] 表示只看前 i 个物品,这前i个物品恰好装入容量是 j 的背包的情况下,总价值最大是多少(例:前10个物品,这前10个物品中有的被装了进来,有的没有被装进来)
  *  结果: result = Max{f[n][0~V]} 表示前 n 个物品，体积是 0~V 的情况下最大的总价值
  *
  *  假设:我们已经计算完了前 i-1 个物品的所有状态
@@ -32,14 +32,7 @@ import java.util.Scanner;
  */
 public class coding_01背包问题 {
     public static void main(String[] args) {
-        //BackPack01();
-        BackPack01_2();
-    }
-
-    /**
-     * 01背包问题常规动态规划解法
-     */
-    public static int BackPack01() {
+        //输入
         Scanner sc = new Scanner(System.in);
         int N = sc.nextInt();
         int V = sc.nextInt();
@@ -49,6 +42,16 @@ public class coding_01背包问题 {
             v[i] = sc.nextInt();
             w[i] = sc.nextInt();
         }
+
+        //BackPack01(N,V,v,w);
+        BackPack01_2(N, V, v, w);
+    }
+
+    /**
+     * 01背包问题常规动态规划解法
+     */
+    public static int BackPack01(int N, int V, int[] v, int[] w) {
+
         int[][] f = new int[N + 1][V + 1];
         //初始化
         for (int i = 0; i <= V; i++) {
@@ -77,36 +80,32 @@ public class coding_01背包问题 {
     }
 
     /**
-     * 优化:
-     * 使用一维数组来优化
+     * https://leetcode-cn.com/problems/coin-lcci/solution/bei-bao-jiu-jiang-ge-ren-yi-jian-da-jia-fen-xiang-/
+     * 优化: 滚动数组的方式,很有意思可以下去研究一下
+     * 使用一维数组来优化,这个方法很有意思
      */
-    public static int BackPack01_2() {
-        Scanner sc = new Scanner(System.in);
-        int N = sc.nextInt();
-        int V = sc.nextInt();
-        int[] v = new int[N + 1];
-        int[] w = new int[N + 1];
-        for (int i = 1; i <= N; i++) {
-            v[i] = sc.nextInt();
-            w[i] = sc.nextInt();
-        }
+    public static int BackPack01_2(int N, int V, int[] v, int[] w) {
         /**
-         * 换成一维数组后 f[i] 表示体积是 i 的情况下它的最大价值是多少
+         * 换成一维数组后 f[i] 表示物品体积之和最大为 i 时的最大价值，而非恰好为 i 时的最大价值。
          */
         int[] f = new int[V + 1];
         //初始化
         f[0] = 0;
         for (int i = 1; i <= N; i++) {
-//            for (int j = V; j >= v[i]; j--) {
-//                f[j] = Math.max(f[j], f[j - v[i]] + w[i]);
-//            }
-            for (int j = 0; j <= V; j++) {
-                if (j >= v[i]) {
-                    f[j] = Math.max(f[j], f[j - v[i]] + w[i]);
-                }
+            for (int j = V; j >= v[i]; j--) {
+                f[j] = Math.max(f[j], f[j - v[i]] + w[i]);
             }
+            //倒序之前的for循环
+//            for (int j = 0; j <= V; j++) {
+//                if (j >= v[i]) {
+//                    f[j] = Math.max(f[j], f[j - v[i]] + w[i]);
+//                }
+//            }
         }
         System.out.println(f[V]);
+        /**
+         * 这里为什么直接返回 f[V] 很有意思
+         */
         return f[V];
     }
 }
