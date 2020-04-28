@@ -1,7 +1,6 @@
-package com.rickyin.coding.array;
+package com.rickyin.coding.sort;
 
 import java.util.Arrays;
-import java.util.Stack;
 
 public class coding_912_排序数组 {
     public static void main(String[] args) {
@@ -39,8 +38,14 @@ public class coding_912_排序数组 {
                 nums[high] = nums[low];
             }
             nums[low] = flag;
-            sortArray_2(nums, loww, low-1);
-            sortArray_2(nums, low, highh);
+
+            /**
+             * 注意:这里发现一个问题,将下面两行代码改成如下(原来的low改为low+1,原来的low+1改为low),会出现递归溢出的状况
+             *  sortArray_2(nums, loww, low+1);
+             *  sortArray_2(nums, low, highh);
+             */
+            sortArray_2(nums, loww, low);
+            sortArray_2(nums, low+1, highh);
         }
         return nums;
     }
