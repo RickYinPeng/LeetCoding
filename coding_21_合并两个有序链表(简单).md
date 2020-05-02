@@ -1,26 +1,32 @@
-package com.rickyin.coding.list;
+[toc]
 
-public class coding_21_合并两个有序链表 {
-    public static void main(String[] args) {
-        //1->2->4, 1->3->4
-        //1->1->2->3->4->4
-        ListNode One = new ListNode(-9);
-        ListNode Two = new ListNode(3);
-        //ListNode Four = new ListNode(4);
-        One.next = Two;
-        //Two.next = Four;
+### 题目描述
 
-        ListNode One2 = new ListNode(5);
-        ListNode Three = new ListNode(7);
-        //ListNode Four2 = new ListNode(4);
-        One2.next = Three;
-        //Three.next = Four2;
-        ListNode listNode = mergeTwoLists(One, One2);
-        //ListNode listNode = mergeTwoLists(null, new ListNode(0));
-        System.out.println(listNode.val);
-    }
+将两个升序链表合并为一个新的升序链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。 
 
-    /**
+- 示例：
+```
+输入：1->2->4, 1->3->4
+输出：1->1->2->3->4->4
+```
+
+### 题目分析
+
+1. 很简单就是将两个有序的链表合并成一个有序的链表
+2. 暴力法(本人就是这样)
+3. 递归法
+    1. 终止条件：两条链表分别名为 l1 和 l2，当 l1 为空或 l2 为空时结束
+    2. 返回值：<font size = 3 color = red>每一层调用都返回排序好的链表头</font>
+    3. 本级递归内容：如果 l1 的 val 值更小，则将 l1.next 与排序好的链表头相接，l2 同理
+    4. O(m+n)，mm 为 l1的长度，nn 为 l2 的长度
+4. 迭代法
+
+### 题目解法
+
+#### 暴力解法
+
+```java
+/**
      * 思路: 循环判断两个链表的元素,小的往结果链表里面添加
      *     ①:获取链表1和链表2的两个值 v1 和 v2
      *     ②:如果 v1 > v2(v2小) 所以应该将 v2 加入结果链表,然后让 l2 向后移动 l2 = l2.next;
@@ -73,34 +79,35 @@ public class coding_21_合并两个有序链表 {
         }
         return head;
     }
+```
 
-    /**
-     * 递归解法
-     * 终止条件：两条链表分别名为 l1 和 l2，当 l1 为空或 l2 为空时结束
-     * 返回值：每一层调用都返回排序好的链表头
-     * 本级递归内容：如果 l1 的 val 值更小，则将 l1.next 与排序好的链表头相接，l2 同理
-     * O(m+n)，mm 为 l1的长度，nn 为 l2 的长度
-     */
-    public static ListNode mergeTwoLists_2(ListNode l1, ListNode l2) {
-        if (l1 == null) {
-            return l2;
-        } else if (l2 == null) {
-            return l1;
-        } else if (l1.val < l2.val) {
-            l1.next = mergeTwoLists(l1.next, l2);
-            return l1;
-        } else {
-            l2.next = mergeTwoLists(l1, l2.next);
-            return l2;
-        }
-    }
+#### 递归法
 
-    static public class ListNode {
-        int val;
-        ListNode next;
+图解:https://leetcode-cn.com/problems/merge-two-sorted-lists/solution/hua-jie-suan-fa-21-he-bing-liang-ge-you-xu-lian-bi/
 
-        ListNode(int x) {
-            val = x;
-        }
+```java
+/**
+ * 递归解法
+ * 终止条件：两条链表分别名为 l1 和 l2，当 l1 为空或 l2 为空时结束
+ * 返回值：每一层调用都返回排序好的链表头
+ * 本级递归内容：如果 l1 的 val 值更小，则将 l1.next 与排序好的链表头相接，l2 同理
+ * O(m+n)，mm 为 l1的长度，nn 为 l2 的长度
+ */
+public static ListNode mergeTwoLists_2(ListNode l1, ListNode l2) {
+    if (l1 == null) {
+        return l2;
+    } else if (l2 == null) {
+        return l1;
+    } else if (l1.val < l2.val) {
+        l1.next = mergeTwoLists(l1.next, l2);
+        return l1;
+    } else {
+        l2.next = mergeTwoLists(l1, l2.next);
+        return l2;
     }
 }
+```
+#### 递归程序图解
+
+![image](http://tie.027cgb.com/606599/LeetCoding/3.png)
+
