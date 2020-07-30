@@ -22,9 +22,16 @@ public class coding_26_删除排序数组中的重复项 {
                 nums[i] = nums[index];
             }
             */
+            /*
+            优化：如果数组是这样 [1，2，3，4，5，6，7]，index=0,i=1时，num[i]!=num[index] 这个时候 index++= 1 == i 了
+                 那么nums[index]=nums[i]这一句代码就等同于 nums[1] = nums[i] 进行了重复操作,那么咱们可以避免这种操作
+                 当 index++ != i 时进行 nums[index] = nums[i] 的操作
+            */
             if (nums[i] != nums[index]) {
                 index++;
-                nums[index] = nums[i];
+                if (index != i) {
+                    nums[index] = nums[i];
+                }
             }
         }
         return index + 1;
