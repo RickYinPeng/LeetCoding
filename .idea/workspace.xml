@@ -25,7 +25,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b00b4b7e-403a-42ed-80b7-00cee0cfc3b8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/rickyin/coding/string/coding_5_longest_Palindromic_Substring_未完成.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/rickyin/coding/string/coding_5_longest_Palindromic_Substring_暴力解法完成_待优化.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rickyin/coding/string/coding_5_longest_Palindromic_Substring_暴力解法完成_待优化.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,7 +97,7 @@
       <recent name="D:\WorkSpace\IdeaWorpace\Coding" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.coding_5_longest_Palindromic_Substring_未完成">
+  <component name="RunManager" selected="Application.coding_5_longest_Palindromic_Substring_暴力解法完成_待优化">
     <configuration name="coding_209_长度最小的子数组" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.rickyin.coding.array.coding_209_长度最小的子数组" />
       <module name="Coding" />
@@ -150,8 +150,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="coding_5_longest_Palindromic_Substring_未完成" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.rickyin.coding.string.coding_5_longest_Palindromic_Substring_未完成" />
+    <configuration name="coding_5_longest_Palindromic_Substring_暴力解法完成_待优化" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.rickyin.coding.string.coding_5_longest_Palindromic_Substring_暴力解法完成_待优化" />
       <module name="Coding" />
       <extension name="coverage">
         <pattern>
@@ -165,7 +165,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.coding_5_longest_Palindromic_Substring_未完成" />
+        <item itemvalue="Application.coding_5_longest_Palindromic_Substring_暴力解法完成_待优化" />
         <item itemvalue="Application.coding_26_删除排序数组中的重复项" />
         <item itemvalue="Application.coding_209_长度最小的子数组" />
         <item itemvalue="Application.coding_53_最大子序和" />
@@ -291,7 +291,8 @@
       <workItem from="1596362459479" duration="1331000" />
       <workItem from="1596851505713" duration="4761000" />
       <workItem from="1598027695890" duration="52000" />
-      <workItem from="1599150267837" duration="2657000" />
+      <workItem from="1599150267837" duration="2964000" />
+      <workItem from="1599494216743" duration="2774000" />
     </task>
     <task id="LOCAL-00001" summary="LRU缓存算法的实现，使用LinkedList和HashMap配合使用">
       <created>1586100568145</created>
@@ -678,38 +679,38 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="481" y="0" key="CommitChangelistDialog2/-1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1596122622450" />
-    <state width="1877" height="474" key="GridCell.Tab.0.bottom" timestamp="1599152087381">
+    <state width="1877" height="474" key="GridCell.Tab.0.bottom" timestamp="1599153233941">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="474" key="GridCell.Tab.0.bottom/-1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1599152087381" />
-    <state width="1877" height="474" key="GridCell.Tab.0.center" timestamp="1599152087381">
+    <state width="1877" height="474" key="GridCell.Tab.0.bottom/-1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1599153233941" />
+    <state width="1877" height="474" key="GridCell.Tab.0.center" timestamp="1599153233941">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="474" key="GridCell.Tab.0.center/-1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1599152087381" />
-    <state width="1877" height="474" key="GridCell.Tab.0.left" timestamp="1599152087381">
+    <state width="1877" height="474" key="GridCell.Tab.0.center/-1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1599153233941" />
+    <state width="1877" height="474" key="GridCell.Tab.0.left" timestamp="1599153233941">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="474" key="GridCell.Tab.0.left/-1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1599152087381" />
-    <state width="1877" height="474" key="GridCell.Tab.0.right" timestamp="1599152087381">
+    <state width="1877" height="474" key="GridCell.Tab.0.left/-1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1599153233941" />
+    <state width="1877" height="474" key="GridCell.Tab.0.right" timestamp="1599153233941">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="474" key="GridCell.Tab.0.right/-1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1599152087381" />
-    <state width="1877" height="474" key="GridCell.Tab.1.bottom" timestamp="1599152087381">
+    <state width="1877" height="474" key="GridCell.Tab.0.right/-1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1599153233941" />
+    <state width="1877" height="474" key="GridCell.Tab.1.bottom" timestamp="1599153233941">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="474" key="GridCell.Tab.1.bottom/-1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1599152087381" />
-    <state width="1877" height="474" key="GridCell.Tab.1.center" timestamp="1599152087381">
+    <state width="1877" height="474" key="GridCell.Tab.1.bottom/-1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1599153233941" />
+    <state width="1877" height="474" key="GridCell.Tab.1.center" timestamp="1599153233941">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="474" key="GridCell.Tab.1.center/-1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1599152087381" />
-    <state width="1877" height="474" key="GridCell.Tab.1.left" timestamp="1599152087381">
+    <state width="1877" height="474" key="GridCell.Tab.1.center/-1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1599153233941" />
+    <state width="1877" height="474" key="GridCell.Tab.1.left" timestamp="1599153233941">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="474" key="GridCell.Tab.1.left/-1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1599152087381" />
-    <state width="1877" height="474" key="GridCell.Tab.1.right" timestamp="1599152087381">
+    <state width="1877" height="474" key="GridCell.Tab.1.left/-1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1599153233941" />
+    <state width="1877" height="474" key="GridCell.Tab.1.right" timestamp="1599153233941">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="474" key="GridCell.Tab.1.right/-1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1599152087381" />
+    <state width="1877" height="474" key="GridCell.Tab.1.right/-1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1599153233941" />
     <state x="740" y="221" key="RollbackChangesDialog" timestamp="1595774414306">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -730,10 +731,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="559" y="183" width="803" height="674" key="find.popup/-1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1593233457931" />
-    <state x="539" y="183" width="840" height="856" key="search.everywhere.popup" timestamp="1593340014883">
+    <state x="539" y="183" width="840" height="856" key="search.everywhere.popup" timestamp="1599496737060">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="539" y="183" width="840" height="856" key="search.everywhere.popup/-1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1593340014883" />
+    <state x="539" y="183" width="840" height="856" key="search.everywhere.popup/-1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1599496737060" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -744,7 +745,7 @@
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/rickyin/coding/string/coding_5_longest_Palindromic_Substring_未完成.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/com/rickyin/coding/string/coding_5_longest_Palindromic_Substring_暴力解法完成_待优化.java</url>
           <line>76</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>

@@ -1,5 +1,6 @@
 package com.rickyin.coding.string;
 
+import javax.xml.stream.FactoryConfigurationError;
 import java.util.HashMap;
 
 public class coding_5_longest_Palindromic_Substring_暴力解法完成_待优化 {
@@ -112,9 +113,10 @@ public class coding_5_longest_Palindromic_Substring_暴力解法完成_待优化
     /**
      * 上面的暴力解法超时了，cao，所以优化下
      * 优化点：
-     *  1. s.charAt(i) 每次都会检查数组下标越界，因此先转换成字符数组
-     *  2. 如果目前子串的长度没有maxLength长度大的化，那么就没必要比较它了，因为比较了也是白比较（这里是最主要的优化点，因为避免了很多次重复比较）
-     *  3. 判断是否是回文子串
+     * 1. s.charAt(i) 每次都会检查数组下标越界，因此先转换成字符数组
+     * 2. 如果目前子串的长度没有maxLength长度大的化，那么就没必要比较它了，因为比较了也是白比较（这里是最主要的优化点，因为避免了很多次重复比较）
+     * 3. 判断是否是回文子串
+     *
      * @param s
      * @return
      */
@@ -126,7 +128,7 @@ public class coding_5_longest_Palindromic_Substring_暴力解法完成_待优化
             return s;
         }
         /**
-         * 注意：最小的回文子串的长度就是1
+         * 注意：最小的回文子串的长度就是1，所以我们可以直接从长度等于2的子串开始比较
          */
         int maxLength = 1;
         int startIndex = 0;
@@ -138,7 +140,7 @@ public class coding_5_longest_Palindromic_Substring_暴力解法完成_待优化
         for (int i = 0; i < len - 1; i++) {
             for (int j = i + 1; j < len; j++) {
                 /**
-                 * todo 注意：这里也可以优化下，如果目前子串的长度没有maxLength长度大的化，那么就没必要比较它了，因为比较了也是白比较
+                 * todo 注意：这里也做了优化，如果目前子串的长度没有maxLength长度大的化，那么就没必要比较它了，因为比较了也是白比较
                  */
                 if (j - i + 1 > maxLength && validatePalindrome2(chars, i, j)) {
                     maxLength = j - i + 1;
@@ -151,6 +153,7 @@ public class coding_5_longest_Palindromic_Substring_暴力解法完成_待优化
 
     /**
      * 判断是否是回文子串
+     *
      * @param chars
      * @param left
      * @param right
@@ -165,5 +168,58 @@ public class coding_5_longest_Palindromic_Substring_暴力解法完成_待优化
             right--;
         }
         return true;
+    }
+
+    /**
+     * 动态规划
+     *
+     * @param s
+     * @return
+     */
+    public static String longestPalindrome4(String s) {
+        //特别条件判断
+        int len = s.length();
+        if (len < 2) {
+            return s;
+        }
+
+        int maxLength = 1;
+        int startIndex = 0;
+
+        //定义状态转移数组
+        int[][] dp = new int[len][len];
+
+        //将字符串转换位CharArray，这样利于操作
+        char[] chars = s.toCharArray();
+
+        //对状态转移数组做初始化
+        for (int i = 0; i < len; i++) {
+            dp[i][i] = 1;
+        }
+
+        /**
+         * 这里要特别注意填表的顺序
+         */
+        //开始填表
+        for (int j = 1; j < len; j++) {
+            for (int i = 0; i < j; i++) {
+                if (chars[i] != chars[j]) {
+                    dp[i][j] = 0;
+                } else {
+                    if (j - i < 3) {
+                        dp[i][j] = 1;
+                    } else {
+                        dp[i][j] = dp[i + 1][j - 1];
+                    }
+                }
+
+                //如果 dp[i][j]=1,就表示子串s[i...j]是回文串，此时记录回文串的长度和起始地址
+                if (dp[i][j] == 1 && j - i + 1 > maxLength) {
+                    maxLength = j - i + 1;
+                    startIndex = i;
+                }
+            }
+        }
+        return s.substring(startIndex, startIndex + maxLength);
     }
 }
