@@ -1,6 +1,5 @@
 package com.rickyin.coding.string;
 
-import javax.xml.stream.FactoryConfigurationError;
 import java.util.HashMap;
 
 public class coding_5_longest_Palindromic_Substring_暴力解法完成_待优化 {
@@ -140,7 +139,7 @@ public class coding_5_longest_Palindromic_Substring_暴力解法完成_待优化
         for (int i = 0; i < len - 1; i++) {
             for (int j = i + 1; j < len; j++) {
                 /**
-                 * todo 注意：这里也做了优化，如果目前子串的长度没有maxLength长度大的化，那么就没必要比较它了，因为比较了也是白比较
+                 * todo 注意：这里也做了优化，如果目前遍历的子串的长度没有maxLength长度大的化，那么就没必要比较它了，因为比较了也是白比较
                  */
                 if (j - i + 1 > maxLength && validatePalindrome2(chars, i, j)) {
                     maxLength = j - i + 1;
