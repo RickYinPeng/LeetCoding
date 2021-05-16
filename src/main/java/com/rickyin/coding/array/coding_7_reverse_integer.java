@@ -1,8 +1,7 @@
 package com.rickyin.coding.array;
 
-import java.util.concurrent.locks.LockSupport;
 
-public class coding_2_reverse_integer {
+public class coding_7_reverse_integer {
     public static void main(String[] args) {
         System.out.println(reverse(1534236469));
     }
